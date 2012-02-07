@@ -1,4 +1,5 @@
 set nocompatible
+syntax enable
 
 " appearance options
 set guioptions=egmrLt
@@ -50,7 +51,7 @@ set directory=~/.vim/swap
 " screen size
 set lines=45
 set columns=92
-set transparency=10
+"set transparency=10
 set laststatus=2
 set cursorline
 
