@@ -2,13 +2,15 @@ set nocompatible
 syntax enable
 
 " appearance options
-set guioptions=egmrLt
+"set guioptions=egmrLt
 
+colorscheme ir_black 
+hi FoldColumn guibg=#000000
 " put these in .gvimrc
 "set guifont=Monaco\ for\ Powerline:h12
 "set guifont=UbuntuMonoForPowerline\ 12
-colorscheme ir_black 
-hi FoldColumn guibg=#000000
+"colorscheme ir_black 
+"hi FoldColumn guibg=#000000
 
 " change the mapleader from \ to ,
 let mapleader=","
@@ -87,4 +89,5 @@ autocmd BufEnter *.m    compiler mlint
 
 call pathogen#infect() 
 
-let g:Powerline_symbols = 'fancy'
+"Put this in .gvimrc
+"let g:Powerline_symbols = 'fancy'

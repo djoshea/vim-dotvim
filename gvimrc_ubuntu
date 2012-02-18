@@ -1,0 +1,13 @@
+" Machine specific, gui-specific settings
+
+colorscheme ir_black
+
+set guifont=UbuntuMonoForPowerline\ 12
+
+let g:Powerline_symbols = 'fancy'
+
+set guioptions=egmrLt
+
+colorscheme ir_black 
+hi FoldColumn guibg=#000000
+
