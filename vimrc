@@ -3,13 +3,19 @@ syntax enable
 
 " appearance options
 set guioptions=egmrLt
-set guifont=Monaco\ for\ Powerline:h12
+
+" put these in .gvimrc
+"set guifont=Monaco\ for\ Powerline:h12
+"set guifont=UbuntuMonoForPowerline\ 12
 colorscheme ir_black 
 hi FoldColumn guibg=#000000
 
 " change the mapleader from \ to ,
 let mapleader=","
 nnoremap ; :
+
+" ,w writes to disk
+map <leader>w :w<CR>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -45,8 +51,8 @@ noremap <silent> <leader>t :CommandT<CR>
 
 " keep backup and swap in temp folders
 set backup
-set backupdir=~/.vim/backup
-set directory=~/.vim/swap
+set backupdir=~/.vim/tmp/backup
+set directory=~/.vim/tmp/swap
 
 " screen size
 set lines=45
