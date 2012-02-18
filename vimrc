@@ -4,8 +4,6 @@ syntax enable
 " appearance options
 "set guioptions=egmrLt
 
-colorscheme ir_black 
-hi FoldColumn guibg=#000000
 " put these in .gvimrc
 "set guifont=Monaco\ for\ Powerline:h12
 "set guifont=UbuntuMonoForPowerline\ 12
