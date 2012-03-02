@@ -55,14 +55,18 @@ set backupdir=~/.vim/tmp/backup
 set directory=~/.vim/tmp/swap
 
 " screen size
-set lines=45
-set columns=92
+"set lines=45
+"set columns=92
 "set transparency=10
 set laststatus=2
 set cursorline
 
 set textwidth=0
 set colorcolumn=81
+
+" Matlab region comment
+vmap <C-r> :s/^\ /%/<CR>
+vmap <C-t> :s/^%/\ /<CR>
 
 " Easy window navigation
 map <C-h> <C-w>h
