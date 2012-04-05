@@ -75,6 +75,8 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 nnoremap <silent> <leader>o :FufFileWithCurrentBufferDir<CR>
+nnoremap <silent> <leader>b :CommandTBuffer<CR>
+
 
 " Cut copy paste
 vmap <C-x> "+x
