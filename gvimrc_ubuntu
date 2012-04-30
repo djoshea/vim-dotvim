@@ -1,0 +1,18 @@
+" Machine specific, gui-specific settings
+
+colorscheme ir_black
+
+set guifont=UbuntuMonoForPowerline\ 11
+
+let g:Powerline_symbols='fancy'
+
+set guioptions=egmrLt
+
+colorscheme ir_black 
+hi FoldColumn guibg=#000000
+
+" Clipboard in gVim
+vmap <C-x> "+x
+vmap <C-c> "+y
+map <C-v> "+gP
+inoremap <C-v> <Esc>"+gPi

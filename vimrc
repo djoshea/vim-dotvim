@@ -2,14 +2,20 @@ set nocompatible
 syntax enable
 
 " appearance options
-set guioptions=egmrLt
-set guifont=Monaco\ for\ Powerline:h12
-colorscheme ir_black 
-hi FoldColumn guibg=#000000
+"set guioptions=egmrLt
+
+" put these in .gvimrc
+"set guifont=Monaco\ for\ Powerline:h12
+"set guifont=UbuntuMonoForPowerline\ 12
+"colorscheme ir_black 
+"hi FoldColumn guibg=#000000
 
 " change the mapleader from \ to ,
 let mapleader=","
 nnoremap ; :
+
+" ,w writes to disk
+map <leader>w :w<CR>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -53,15 +59,19 @@ nnoremap <silent> <leader>o :FufFileWithCurrentBufferDir<CR>
 
 " keep backup and swap in temp folders
 set backup
-set backupdir=~/.vim/backup
-set directory=~/.vim/swap
+set backupdir=~/.vim/tmp/backup
+set directory=~/.vim/tmp/swap
 
-"set transparency=10
+" screen size
 set laststatus=2
 set cursorline
 
 set textwidth=0
 set colorcolumn=81
+
+" Matlab region comment
+vmap <C-r> :s/^\ /%/<CR>
+vmap <C-t> :s/^%/\ /<CR>
 
 " Easy window navigation
 map <C-h> <C-w>h
@@ -69,6 +79,8 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+nnoremap <silent> <leader>o :FufFileWithCurrentBufferDir<CR>
+nnoremap <silent> <leader>b :CommandTBuffer<CR>
 
 " Cut copy paste
 vmap <C-x> "+x
@@ -92,3 +104,4 @@ nmap <silent> <leader>el :e ~/.vimrc_local<CR>
 if filereadable($MYVIMRC . "_local")
     so ~/.vimrc_local
 endif
+
