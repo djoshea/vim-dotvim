@@ -30,7 +30,11 @@ map <leader><leader> :w<CR>
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <leader>w :w<CR>
 
+nmap <silent> <leader><leader> :w<CR>
+
+set mouse=n " prevents weird bugs in iTerm when scrolling
 set hidden
 set nowrap        " don't wrap lines
 set tabstop=4     " a tab is four spaces
@@ -57,15 +61,18 @@ set wildmode=longest,list,full
 noremap j gj
 noremap k gk
 
+" Commmand T Plugin options and shortcuts
+let CommandTMatchWindowAtTop=1
+let g:CommandTCancelMap=['<C-x>', '<C-c>', '<Esc>']
+nnoremap <silent> <leader>t :CommandTFlush<CR>:CommandT<CR>
+nnoremap <silent> <leader>o :FufFileWithCurrentBufferDir<CR>
+
 " keep backup and swap in temp folders
 set backup
 set backupdir=~/.vim/tmp/backup
 set directory=~/.vim/tmp/swap
 
 " screen size
-"set lines=45
-"set columns=92
-"set transparency=10
 set laststatus=2
 set cursorline
 
@@ -84,8 +91,8 @@ map <C-l> <C-w>l
 
 " Command-T shortcuts
 noremap <silent> <leader>t :CommandTFlush<CR>:CommandT<CR>
-nnoremap <silent> <leader>o :CommandTFlush<CR>:FufFileWithCurrentBufferDir<CR>
 nnoremap <silent> <leader>b :CommandTFlush<CR>:CommandTBuffer<CR>
+nnoremap <silent> <leader>o :FufFileWithCurrentBufferDir<CR>
 
 " Cut copy paste
 vmap <C-x> "+x
@@ -100,7 +107,13 @@ nmap <silent> ,/ :nohlsearch<CR>
 
 autocmd BufEnter *.m    compiler mlint
 
+"Pathogen setup
 call pathogen#infect() 
+let g:Powerline_symbols = 'fancy'
 
-"Put this in .gvimrc
-"let g:Powerline_symbols = 'fancy'
+" .vimrc_local file for machine specific settings
+nmap <silent> <leader>el :e ~/.vimrc_local<CR>
+if filereadable($MYVIMRC . "_local")
+    so ~/.vimrc_local
+endif
+
