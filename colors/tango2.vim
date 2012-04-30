@@ -27,11 +27,12 @@ let colors_name = "tango2"
 
 if version >= 700
 " No support for cursor line yet
-" hi CursorLine term=underline cterm=underline guibg=#111133
-" hi CursorColoumn
-" hi MatchParen
-" hi Pmenu
-" hi PmenuSel
+hi CursorLine term=underline cterm=NONE ctermbg=Black guibg=Black
+hi LineNr cterm=NONE ctermfg=DarkGray
+"hi CursorColumn
+"hi MatchParen
+"hi Pmenu
+"hi PmenuSel
 endif
 
 " =============================================================================
@@ -48,7 +49,7 @@ hi Folded guibg=#4D585B guibg=#d2d2d2
 " Syntax highlighting
 " =============================================================================
 
-hi Comment gui=italic guifg=#6d7e8a ctermfg=Grey
+hi Comment gui=italic guifg=#6d7e8a ctermfg=DarkGray
 hi Todo term=bold guifg=#EBC450 
 hi Constant guifg=#8ae234
 hi Type guifg=#8AE234
@@ -60,3 +61,5 @@ hi Special term=underline guifg=#5EAFE5
 
 hi Search guibg=#81ABBD
 " hi QtClass guifg=Orange ctermfg=LightBlue
+
+

@@ -7,15 +7,25 @@ syntax enable
 " put these in .gvimrc
 "set guifont=Monaco\ for\ Powerline:h12
 "set guifont=UbuntuMonoForPowerline\ 12
-"colorscheme ir_black 
+colorscheme ir_black 
 "hi FoldColumn guibg=#000000
+
+" reload files changed outside of vim that have not been changed within vim
+set autoread
 
 " change the mapleader from \ to ,
 let mapleader=","
 nnoremap ; :
 
+" mouse in normal mode only
+set mouse=n
+
+noremap <silent> <leader>m :tabp<CR>
+noremap <silent> <leader>. :tabn<CR>
+
 " ,w writes to disk
 map <leader>w :w<CR>
+map <leader><leader> :w<CR>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -47,8 +57,6 @@ set wildmode=longest,list,full
 noremap j gj
 noremap k gk
 
-noremap <silent> <leader>t :CommandT<CR>
-
 " keep backup and swap in temp folders
 set backup
 set backupdir=~/.vim/tmp/backup
@@ -74,9 +82,10 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-nnoremap <silent> <leader>o :FufFileWithCurrentBufferDir<CR>
-nnoremap <silent> <leader>b :CommandTBuffer<CR>
-
+" Command-T shortcuts
+noremap <silent> <leader>t :CommandTFlush<CR>:CommandT<CR>
+nnoremap <silent> <leader>o :CommandTFlush<CR>:FufFileWithCurrentBufferDir<CR>
+nnoremap <silent> <leader>b :CommandTFlush<CR>:CommandTBuffer<CR>
 
 " Cut copy paste
 vmap <C-x> "+x
