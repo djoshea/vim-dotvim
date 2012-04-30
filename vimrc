@@ -14,7 +14,11 @@ nnoremap ; :
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <leader>w :w<CR>
 
+nmap <silent> <leader><leader> :w<CR>
+
+set mouse=n " prevents weird bugs in iTerm when scrolling
 set hidden
 set nowrap        " don't wrap lines
 set tabstop=4     " a tab is four spaces
@@ -41,16 +45,17 @@ set wildmode=longest,list,full
 noremap j gj
 noremap k gk
 
-noremap <silent> <leader>t :CommandT<CR>
+" Commmand T Plugin options and shortcuts
+let CommandTMatchWindowAtTop=1
+let g:CommandTCancelMap=['<C-x>', '<C-c>', '<Esc>']
+nnoremap <silent> <leader>t :CommandTFlush<CR>:CommandT<CR>
+nnoremap <silent> <leader>o :FufFileWithCurrentBufferDir<CR>
 
 " keep backup and swap in temp folders
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/swap
 
-" screen size
-set lines=45
-set columns=92
 "set transparency=10
 set laststatus=2
 set cursorline
@@ -64,7 +69,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-nnoremap <silent> <leader>o :FufFileWithCurrentBufferDir<CR>
 
 " Cut copy paste
 vmap <C-x> "+x
@@ -79,6 +83,12 @@ nmap <silent> ,/ :nohlsearch<CR>
 
 autocmd BufEnter *.m    compiler mlint
 
+"Pathogen setup
 call pathogen#infect() 
-
 let g:Powerline_symbols = 'fancy'
+
+" .vimrc_local file for machine specific settings
+nmap <silent> <leader>el :e ~/.vimrc_local<CR>
+if filereadable($MYVIMRC . "_local")
+    so ~/.vimrc_local
+endif
