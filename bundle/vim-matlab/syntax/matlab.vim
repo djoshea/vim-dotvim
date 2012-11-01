@@ -50,6 +50,8 @@ syn keyword matlabConstant	eps Inf NaN pi
 " Transpose character and delimiters: Either use just [...] or (...) aswell
 syn match matlabDelimiter		"[][]"
 "syn match matlabDelimiter		"[][()]"
+syn match matlabParens			"[()]"
+syn match matlabCurly			"[{}]"
 syn match matlabTransposeOperator	"[])a-zA-Z0-9.]'"lc=1
 
 syn match matlabSemicolon		";"
@@ -347,8 +349,11 @@ if version >= 508 || !exists("did_matlab_syntax_inits")
   HiLink matlabFunc			Function
 
 "optional highlighting
-  "HiLink matlabIdentifier		Identifier
-  "HiLink matlabTab			Error
+  HiLink matlabIdentifier		Identifier
+  HiLink matlabTab			Error
+
+  HiLink matlabParens			Identifier
+  HiLink matlabCurly			Identifier
   delcommand HiLink
 endif
 
