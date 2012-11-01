@@ -63,7 +63,10 @@ noremap k gk
 
 " Commmand T Plugin options and shortcuts
 let CommandTMatchWindowAtTop=1
-let g:CommandTCancelMap=['<C-x>', '<C-c>', '<Esc>']
+"let g:CommandTCancelMap='<Esc>' " this breaks up down
+"let g:CommandTCancelMap=['<C-x>', '<C-c>', '<Esc>']
+"let g:CommandTSelectNextMap='<Down>'
+"let g:CommandTSelectPrevMap='<Up>'
 nnoremap <silent> <leader>t :CommandTFlush<CR>:CommandT<CR>
 nnoremap <silent> <leader>o :FufFileWithCurrentBufferDir<CR>
 
@@ -109,7 +112,7 @@ autocmd BufEnter *.m    compiler mlint
 
 "Pathogen setup
 call pathogen#infect() 
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 
 " .vimrc_local file for machine specific settings
 nmap <silent> <leader>el :e ~/.vimrc_local<CR>
