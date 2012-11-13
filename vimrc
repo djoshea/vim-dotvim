@@ -7,7 +7,7 @@ syntax enable
 " put these in .gvimrc
 "set guifont=Monaco\ for\ Powerline:h12
 "set guifont=UbuntuMonoForPowerline\ 12
-colorscheme ir_black 
+colorscheme wombat256
 "hi FoldColumn guibg=#000000
 
 " reload files changed outside of vim that have not been changed within vim
