@@ -112,6 +112,7 @@ autocmd BufEnter *.m    compiler mlint
 
 "Pathogen setup
 call pathogen#infect() 
+call pathogen#helptags()
 "let g:Powerline_symbols = 'fancy'
 
 " .vimrc_local file for machine specific settings
