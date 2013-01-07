@@ -3,7 +3,7 @@ syntax enable
 
 " appearance options
 set guioptions=egmrLt
-set guifont=Monaco\ for\ Powerline:h12
+set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
 set t_Co=256
 colorscheme wombat256
 hi FoldColumn guibg=#000000
