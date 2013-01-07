@@ -2,30 +2,20 @@ set nocompatible
 syntax enable
 
 " appearance options
-"set guioptions=egmrLt
-
-" put these in .gvimrc
-"set guifont=Monaco\ for\ Powerline:h12
-"set guifont=UbuntuMonoForPowerline\ 12
+set guioptions=egmrLt
+set guifont=Monaco\ for\ Powerline:h12
+set t_Co=256
 colorscheme wombat256
-"hi FoldColumn guibg=#000000
-
-" reload files changed outside of vim that have not been changed within vim
-set autoread
+hi FoldColumn guibg=#000000
 
 " change the mapleader from \ to ,
 let mapleader=","
 nnoremap ; :
 
-" mouse in normal mode only
-set mouse=n
-
-noremap <silent> <leader>m :tabp<CR>
-noremap <silent> <leader>. :tabn<CR>
-
-" ,w writes to disk
-map <leader>w :w<CR>
-map <leader><leader> :w<CR>
+" tab switching
+nmap <leader>a :tabp<CR>
+nmap <leader>f :tabp<CR>
+map <C-t> :tabnew<CR>
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -61,30 +51,17 @@ set wildmode=longest,list,full
 noremap j gj
 noremap k gk
 
-" Commmand T Plugin options and shortcuts
-let CommandTMatchWindowAtTop=1
-"let g:CommandTCancelMap='<Esc>' " this breaks up down
-"let g:CommandTCancelMap=['<C-x>', '<C-c>', '<Esc>']
-"let g:CommandTSelectNextMap='<Down>'
-"let g:CommandTSelectPrevMap='<Up>'
-nnoremap <silent> <leader>t :CommandTFlush<CR>:CommandT<CR>
-nnoremap <silent> <leader>o :FufFileWithCurrentBufferDir<CR>
-
 " keep backup and swap in temp folders
 set backup
-set backupdir=~/.vim/tmp/backup
-set directory=~/.vim/tmp/swap
+set backupdir=~/.vim/backup
+set directory=~/.vim/swap
 
-" screen size
+"set transparency=10
 set laststatus=2
 set cursorline
 
 set textwidth=0
 set colorcolumn=81
-
-" Matlab region comment
-vmap <C-r> :s/^\ /%/<CR>
-vmap <C-t> :s/^%/\ /<CR>
 
 " Easy window navigation
 map <C-h> <C-w>h
@@ -92,10 +69,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Command-T shortcuts
-noremap <silent> <leader>t :CommandTFlush<CR>:CommandT<CR>
-nnoremap <silent> <leader>b :CommandTFlush<CR>:CommandTBuffer<CR>
-nnoremap <silent> <leader>o :FufFileWithCurrentBufferDir<CR>
 
 " Cut copy paste
 vmap <C-x> "+x
@@ -112,10 +85,37 @@ autocmd BufEnter *.m    compiler mlint
 
 "Pathogen setup
 call pathogen#infect() 
-call pathogen#helptags()
-"let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'fancy'
 
-" .vimrc_local file for machine specific settings
+"CtrlP setup
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " Linux/MacOSX
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ }
+
+nnoremap <silent> <leader>t :CtrlP<CR>
+nnoremap <silent> <leader>b :CtrlPBuffer<CR>
+nnoremap <silent> <leader>d :CtrlPCurWD<CR>
+
+" Removing Command T in favor of CtrlP
+" Commmand T Plugin options and shortcuts
+"let CommandTMatchWindowAtTop=1
+"nnoremap <silent> <leader>t :CommandTFlush<CR>:CommandT<CR>
+"nnoremap <silent> <leader>o :FufFileWithCurrentBufferDir<CR>
+
+
+" vim-autoread based on
+" http://vim.wikia.com/wiki/Have_Vim_check_automatically_if_the_file_has_changed_externally
+" see .vim/bundle/vim-autoread/plugin/autoread.vim
+
+
+autocmd VimEnter * WatchForChangesAllFile! 
+
+" load file for machine specific settings
 nmap <silent> <leader>el :e ~/.vimrc_local<CR>
 if filereadable($MYVIMRC . "_local")
     so ~/.vimrc_local
