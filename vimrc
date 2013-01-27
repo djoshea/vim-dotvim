@@ -5,7 +5,6 @@ syntax enable
 set guioptions=egmrLt
 set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
 set t_Co=256
-colorscheme wombat256
 hi FoldColumn guibg=#000000
 
 " change the mapleader from \ to ,
@@ -14,7 +13,8 @@ nnoremap ; :
 
 " tab switching
 nmap <leader>a :tabp<CR>
-nmap <leader>f :tabp<CR>
+nmap <leader>f :tabn<CR>
+nmap <leader>g :tabnew<CR>
 map <C-t> :tabnew<CR>
 
 " Quickly edit/reload the vimrc file
@@ -112,6 +112,9 @@ nnoremap <silent> <leader>d :CtrlPCurWD<CR>
 " http://vim.wikia.com/wiki/Have_Vim_check_automatically_if_the_file_has_changed_externally
 " see .vim/bundle/vim-autoread/plugin/autoread.vim
 
+set background=dark
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-default
 
 autocmd VimEnter * WatchForChangesAllFile! 
 
@@ -120,4 +123,5 @@ nmap <silent> <leader>el :e ~/.vimrc_local<CR>
 if filereadable($MYVIMRC . "_local")
     so ~/.vimrc_local
 endif
+
 
