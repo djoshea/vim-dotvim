@@ -1,0 +1,61 @@
+UnBundle 'spf13/vim-autoclose'
+UnBundle 'myusuf3/numbers.vim'
+
+set t_Co=256
+colorscheme grb256
+
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=238
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+set cursorline
+
+set nospell
+set number
+set nofoldenable
+set foldmethod=syntax
+
+"Make <Esc> work instantaneously, check that map <Esc> returns nothing
+silent! unmap <Esc>[H
+silent! unmap <Esc>[F
+
+"ctrlP bindings
+map <Leader>b :CtrlPBuffer<Return>
+map <Leader>d :CtrlPCurFile<Return>
+map <Leader>t :CtrlP<Return>
+
+"switch to buffer by number
+map <Leader>1 :call BufPos_ActivateBuffer(1)<Return>
+map <Leader>2 :call BufPos_ActivateBuffer(2)<Return>
+map <Leader>3 :call BufPos_ActivateBuffer(3)<Return>
+map <Leader>4 :call BufPos_ActivateBuffer(4)<Return>
+map <Leader>5 :call BufPos_ActivateBuffer(5)<Return>
+map <Leader>6 :call BufPos_ActivateBuffer(6)<Return>
+map <Leader>7 :call BufPos_ActivateBuffer(7)<Return>
+map <Leader>8 :call BufPos_ActivateBuffer(8)<Return>
+map <Leader>9 :call BufPos_ActivateBuffer(9)<Return>
+
+map <Leader>w :w<Return>
+map <Leader>, :w<Return>
+
+map <Leader>a :bprevious<Return>
+map <Leader>f :bnext<Return>
+map <Leader>q :bd<Return>
+
+set timeoutlen=500 ttimeoutlen=0
+
+map <Leader>b :CtrlPBuffer<Return>
+map <Leader>d :CtrlPCurFile<Return>
+map <leader>p :CtrlPMixed<Return>
+
+set timeoutlen=1000 ttimeoutlen=0
+
+" disable neocompl auto complete
+let g:neocomplcache_disable_auto_complete = 1
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : "\<C-x>\<C-u>"
+function! s:check_back_space()"{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~ '\s'
+endfunction"}}

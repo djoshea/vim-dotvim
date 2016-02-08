@@ -1,0 +1,19 @@
+
+"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Pychimp/vim-luna'
+Bundle 'djoshea/vim-matlab'
+Bundle 'djoshea/vim-matlab-fold'
+Bundle "bling/vim-airline"
+Bundle "vim-scripts/bufpos"
+Bundle "djoshea/vim-autoread"
+Bundle "tpope/vim-fugitive"
+Bundle "quanganhdo/grb256"
+Bundle "scrooloose/nerdcommenter"
+
+
+"UnBundle 'spf13/AutoClose'
+"UnBundle 'Shougo/neocomplcache'
+"UnBundle 'Shougo/neosnippet'
+"UnBundle 'PIV'
+"UnBundle 'Puppet-Syntax-Highlighting'
+
